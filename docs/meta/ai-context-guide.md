@@ -1,7 +1,7 @@
-# AI Context Guide (Updated for MLSecOps Field Manual Subproject)
+# AI Context Guide (Updated for MLSecOps Field Manual™ Subproject)
 
 ## Overview
-This guide frames how the AI assistant collaborates with the ongoing **MLSecOps Lab** and the newly formalized **MLSecOps Field Manual** subproject. Both bodies of work now live within a shared ChatGPT Project context, while remaining independent in your GitHub.
+This guide frames how the AI assistant collaborates with the ongoing **MLSecOps Lab** and the newly formalized **MLSecOps Field Manual™** subproject. Both bodies of work now live within a shared ChatGPT Project context, while remaining independent in your GitHub.
 
 The purpose of this guide is to maintain clarity about your long‑term goals, the role of each subproject, and how the assistant should operate within this unified context.
 

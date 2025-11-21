@@ -1,7 +1,7 @@
 
-# MLSecOps Field Manual
+# MLSecOps Field Manual™
 
-The **MLSecOps Field Manual** is a long-term, public, reproducible library of small MLSecOps modules, patterns, and a future book-length field manual.
+The **MLSecOps Field Manual™** is a long-term, public, reproducible library of small MLSecOps modules, patterns, and a future book-length field manual.
 
 The project grows slowly out of a private MLSecOps Lab and focuses on:
 
@@ -55,7 +55,7 @@ docs/
         
     - This is the **R&D engine** where everything is actually run.
         
-- **MLSecOps Field Manual** (this repo)
+- **MLSecOps Field Manual™** (this repo)
     
     - Modules, patterns, anti-patterns, diagrams, and a future book.
         

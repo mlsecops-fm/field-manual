@@ -1,6 +1,6 @@
 
 ---
-MLSecOps Field Manual — Working Table of Contents
+MLSecOps Field Manual™ — Working Table of Contents
 
 A practical guide from a security engineer building, defending, and operationalizing machine-learning systems in the real world.
 

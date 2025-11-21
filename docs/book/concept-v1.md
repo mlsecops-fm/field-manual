@@ -1,6 +1,6 @@
 
 ---
-MLSecOps Field Manual – Concept v1 (Working Draft)
+MLSecOps Field Manual™ – Concept v1 (Working Draft)
 
 A Living, Open, Practical Contribution to the AI Security Community
 
@@ -12,7 +12,7 @@ Build a long-term, public, reproducible library of small, practical MLSecOps mod
 This is not a product, not a course, and not a “big launch.”
 This is a slow, steady, high-signal contribution to a field in desperate need of grounded guidance.
 
-The Field Manual exists to:
+The Field Manual™ exists to:
 
 distill complex ML security concepts into runnable examples
 

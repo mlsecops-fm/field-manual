@@ -1,6 +1,6 @@
 
 ---
-MLSecOps Field Manual – Chapter Mapping Tracker
+MLSecOps Field Manual™ – Chapter Mapping Tracker
 
 A cross-reference index linking raw notes → draft sections → final manuscript chapters.
 

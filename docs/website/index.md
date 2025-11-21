@@ -1,8 +1,8 @@
-# MLSecOps Field Manual
+# MLSecOps Field Manual™
 
 A living, open, practical contribution to the AI security community.
 
-The **MLSecOps Field Manual** is a long-term project to build a public, reproducible library of small MLSecOps modules grounded in real experiments.
+The **MLSecOps Field Manual™** is a long-term project to build a public, reproducible library of small MLSecOps modules grounded in real experiments.
 
 ---
 
