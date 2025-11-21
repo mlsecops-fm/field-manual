@@ -115,3 +115,5 @@ Each module aims to be:
 ## License
 
 This project is licensed under the **MIT License** – see `LICENSE` for details.
+
+© 2025 Richard Spicer. MLSecOps Field Manual™. All rights reserved.
