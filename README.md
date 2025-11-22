@@ -1,5 +1,6 @@
-
 # MLSecOps Field Manual™
+
+A project of **MLSecOps Labs™**.
 
 The **MLSecOps Field Manual™** is a long-term, public, reproducible library of small MLSecOps modules, patterns, and a future book-length field manual.
 
@@ -116,4 +117,6 @@ Each module aims to be:
 
 This project is licensed under the **MIT License** – see `LICENSE` for details.
 
-© 2025 Richard Spicer. MLSecOps Field Manual™. All rights reserved.
+---
+
+*MLSecOps Labs™ and MLSecOps Field Manual™ are unregistered trademarks of Richard Spicer.*
