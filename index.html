@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MLSecOps Field Manual™</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="MLSecOps Field Manual™ — Vigilis in Machina. A long-term, public, reproducible library of small MLSecOps modules and patterns." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #020813;
+      --card: #0b1220;
+      --border: #1f2937;
+      --accent: #ef4444;
+      --accent-soft: #7f1d1d;
+      --accent-glow: rgba(239, 68, 68, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --muted-soft: #6b7280;
+      --link: #f97373;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 40, 40, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(15, 23, 42, 0.8), transparent);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #fca5a5;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.5);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .wordmark {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .wordmark span {
+      color: var(--accent);
+    }
+
+    .header-meta {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--muted-soft);
+    }
+
+    .pill {
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 0 1.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 450px;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-logo-wrap {
+        order: -1;
+      }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 3.5vw + 0.875rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 .highlight {
+      color: var(--accent);
+    }
+
+    .hero h1 .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      color: var(--muted);
+    }
+
+    .hero-body {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.75;
+    }
+
+    .hero-body strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    @media (max-width: 850px) {
+      .hero-body {
+        margin: 0 auto;
+      }
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 850px) {
+      .hero-actions {
+        justify-content: center;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      border-color: rgba(248, 113, 113, 0.3);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(220, 38, 38, 0.4);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.3);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .hero-logo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-logo {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 50%;
+    }
+
+    /* Sections */
+    .section {
+      padding: 2rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--muted-soft);
+      font-weight: 500;
+    }
+
+    /* Card Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(11, 18, 32, 0.9), rgba(11, 18, 32, 0.6));
+      border: 1px solid rgba(31, 41, 55, 0.8);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(239, 68, 68, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .card-tag {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--link);
+      margin-bottom: 0.75rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Roadmap */
+    .roadmap-card {
+      background: linear-gradient(135deg, rgba(11, 18, 32, 0.95), rgba(2, 6, 23, 0.9));
+      border: 1px solid rgba(55, 65, 81, 0.6);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .roadmap-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.6);
+    }
+
+    .roadmap-header h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .roadmap-header span {
+      font-size: 0.75rem;
+      color: var(--muted-soft);
+    }
+
+    .roadmap-list {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .roadmap-list li {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1rem;
+      padding: 0.5rem 0;
+      font-size: 0.875rem;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(31, 41, 55, 0.3);
+    }
+
+    .roadmap-list li:last-child {
+      border-bottom: none;
+    }
+
+    .roadmap-list .module-id {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Connect Section */
+    .connect-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 700px) {
+      .connect-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .connect-card {
+      background: linear-gradient(135deg, rgba(11, 18, 32, 0.9), rgba(11, 18, 32, 0.6));
+      border: 1px solid rgba(31, 41, 55, 0.8);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .connect-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .connect-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid rgba(31, 41, 55, 0.5);
+      background: rgba(2, 6, 23, 0.8);
+    }
+
+    .footer-inner {
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted-soft);
+    }
+
+    .footer-motto {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-motto .eye {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+  
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>
+              <span class="highlight">MLSecOps</span> Field Manual<span class="tm">™</span>
+            </h1>
+            <p class="hero-body">
+              A long-term, public, <strong>reproducible library</strong> of small MLSecOps modules, 
+              patterns, and field notes. Each module is grounded in <strong>real lab runs</strong> 
+              with logs, metrics, and failure modes — not slideware.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://github.com/mlsecops-fm/field-manual">
+                View Field Manual Repo
+              </a>
+            </div>
+          </div>
+          <div class="hero-logo-wrap">
+            <img src="assets/img/mlsecops-fm.png" alt="MLSecOps Field Manual emblem" class="hero-logo" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What This Is -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">What This Is</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-tag">Modules</div>
+            <h3>Small, Focused MLSecOps Scenarios</h3>
+            <p>
+              Each module runs in 10–20 minutes, self-contained and backed by real infrastructure: 
+              evasion attacks, RAG abuse, jailbreak logging, misconfigurations, and more.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-tag">Field Notes</div>
+            <h3>Logs, Diagrams & Failure Modes</h3>
+            <p>
+              Rather than abstract "best practices," the manual emphasizes <em>what actually broke</em>, 
+              what signals revealed it, and which mitigations held up under pressure.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-tag">Lab-Backed</div>
+            <h3>Tied to the MLSecOps Lab</h3>
+            <p>
+              The manual is the <strong>public distillation</strong> of a private MLSecOps lab: 
+              Proxmox cluster, segmented networks, inference services, RAG systems, and monitoring.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Near-Term Roadmap</h2>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-header">
+            <h3>Initial Module Track</h3>
+            <span>Sequence subject to change as the lab evolves</span>
+          </div>
+          <ul class="roadmap-list">
+            <li><span class="module-id">Module 01</span> Evasion attack: logs & mitigation</li>
+            <li><span class="module-id">Module 02</span> Safe model loading & environment hardening</li>
+            <li><span class="module-id">Module 03</span> LLM jailbreak monitoring & response</li>
+            <li><span class="module-id">Module 04</span> Retrieval poisoning against RAG pipelines</li>
+            <li><span class="module-id">Module 05</span> Embedding drift detection & guardrails</li>
+            <li><span class="module-id">Module 06</span> Agent tool misconfiguration & blast radius</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Follow -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">How to Follow</h2>
+        </div>
+        <div class="connect-grid">
+          <article class="connect-card">
+            <h3>Field Manual Repository</h3>
+            <p>
+              Track the evolution of the book-length manual, diagrams, and growth map in the 
+              <a href="https://github.com/mlsecops-fm/field-manual">field-manual repo</a>. 
+              Star the repo to get notified when new modules drop.
+            </p>
+          </article>
+          <article class="connect-card">
+            <h3>RAG-Powered Search</h3>
+            <p>
+              A dedicated RAG system indexed on lab docs powers deeper queries as the project grows.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span>© 2025 Richard Spicer. MLSecOps Field Manual™. All rights reserved.</span>
+        <span class="footer-motto">
+          <span class="eye">👁</span>
+          <span>Vigilis in Machina</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
