@@ -13,6 +13,8 @@ The project grows slowly out of a private MLSecOps Lab and focuses on:
 
 This repo is the **public documentation + book project** that sits alongside a separate private **MLSecOps Lab** repo where all experiments run.
 
+
+
 ---
 
 ## Repository structure
@@ -110,6 +112,28 @@ Each module aims to be:
     
 - ⏳ GitHub Pages site to be published once the first modules are ready
     
+
+---
+
+**AI-Assisted Engineering Disclosure**
+
+This project was developed using a **hybrid workflow** that combines:
+
+* Human-driven engineering
+* AI-assisted drafting, coding, review, and research
+* Manual validation, correction, and iteration by the author
+
+AI tools were used as **assistants**, not autonomous agents.
+All infrastructure, configurations, testing, integrations, and final decisions were performed by the author in a **hands-on, human-led manner**.
+
+The goals for AI-assisted development were:
+* Accelerating experimentation
+* Exploring multiple design/attack/defense patterns
+* Reducing boilerplate work
+* Improving clarity and documentation
+* Learning through guided iteration
+
+Every module, configuration, and implementation was manually validated and reproduced to ensure understanding, accuracy, and transparency.
 
 ---
 
