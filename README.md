@@ -4,10 +4,10 @@ A project of **MLSecOps Labs™**.
 
 The **MLSecOps Field Manual™** is a reproducible library of small MLSecOps modules and patterns.
 
-The project grows slowly out of a private MLSecOps Lab and focuses on:
+The project grows out of a private MLSecOps Lab and focuses on:
 
 - **Reality** – every module is based on something that actually ran in the lab.   
-- **Reproducibility** – small, self-contained scenarios over giant monolithic labs.   
+- **Reproducibility** – small, self-contained scenarios.   
 - **Operational clarity** – logs, metrics, and failure modes.
 
 ---
