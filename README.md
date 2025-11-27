@@ -65,4 +65,4 @@ This project is licensed under the **MIT License** – see `LICENSE` for details
 
 ---
 
-*MLSecOps Labs™ and MLSecOps Field Manual™ are unregistered trademarks of Richard Spicer.*
+*MLSecOps Labs™, MLSecOps Field Manual™, and Vigilis in Machina™ are unregistered trademarks of Richard Spicer.*
