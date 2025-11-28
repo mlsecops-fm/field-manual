@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
   <title>MLSecOps Field Manual</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
@@ -24,8 +27,10 @@
     }
     
     body {
-      max-width: 700px;
-      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 60px 20px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.6;
@@ -34,22 +39,34 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
     
+    .container {
+      max-width: 700px;
+      width: 100%;
+      padding: 40px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    
     h1 {
       font-size: 1.8rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
       color: var(--text-dark);
+      text-align: center;
     }
     
     .subtitle {
       color: var(--text-muted);
       margin-bottom: 2rem;
       font-size: 1rem;
+      text-align: center;
     }
     
     .description {
       margin-bottom: 2rem;
       color: var(--text);
+      text-align: center;
     }
     
     h2 {
@@ -57,26 +74,22 @@
       font-weight: 600;
       margin: 2rem 0 1rem;
       color: var(--text-dark);
+      text-align: center;
     }
     
     .modules {
       margin-bottom: 2rem;
+      list-style: none;
+      padding: 0;
     }
     
     .module-item {
       margin-bottom: 0.8rem;
-      padding-left: 1.5rem;
-    }
-    
-    .module-item.complete {
-      list-style: none;
-      position: relative;
+      text-align: center;
     }
     
     .module-item.complete::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
+      content: "✓ ";
       color: #22c55e;
     }
     
@@ -95,10 +108,15 @@
       opacity: 0.9;
     }
     
+    .link-container {
+      text-align: center;
+    }
+    
     .note {
       font-size: 0.85rem;
       color: var(--text-muted);
       margin: 2rem 0;
+      text-align: center;
     }
     
     .theme-toggle {
@@ -125,9 +143,11 @@
       border-top: 1px solid var(--border);
       font-size: 0.9rem;
       color: var(--text-muted);
+      text-align: center;
     }
     
     footer .motto {
+      font-family: 'Cinzel', serif;
       font-style: italic;
       margin-top: 0.3rem;
     }
@@ -153,34 +173,38 @@
     <span id="themeIcon">☀️</span>
   </button>
 
-  <h1>MLSecOps Field Manual</h1>
-  <div class="subtitle">Documentation of ML Security Experiments</div>
-  
-  <div class="description">
-    Documentation of attacks, defenses, and monitoring patterns tested in a private lab.
-    Each module is lab-validated, reproducible, and focused on operational clarity.
+  <div class="container">
+    <h1>MLSecOps Field Manual</h1>
+    <div class="subtitle">Documentation of ML Security Experiments</div>
+    
+    <div class="description">
+      Documentation of attacks, defenses, and monitoring patterns tested in a private lab.<br>
+      Each module is lab-validated, reproducible, and focused on operational clarity.
+    </div>
+    
+    <h2>Available Modules</h2>
+    <ul class="modules">
+      <li class="module-item complete">Module 1: Evasion Attack (FGSM) - Logs + Mitigation</li>
+      <li class="module-item">Module 2: Safe Model Loading</li>
+      <li class="module-item">Module 3: LLM Jailbreak + Detection + Mitigation</li>
+      <li class="module-item">Module 4: Retrieval Poisoning (RAG)</li>
+      <li class="module-item">Module 5: Embedding Drift Detection</li>
+      <li class="module-item">Module 6: Agent Tool Misconfiguration</li>
+    </ul>
+    
+    <div class="link-container">
+      <a href="https://github.com/mlsecops-labs/field-manual" class="repo-link">View on GitHub</a>
+    </div>
+    
+    <div class="note">
+      This work uses AI tools for assistance. All lab experiments and decisions are human-led.
+    </div>
+    
+    <footer>
+      <div>Richard Spicer</div>
+      <div class="motto">Vigilis in Machina</div>
+    </footer>
   </div>
-  
-  <h2>Available Modules</h2>
-  <ul class="modules">
-    <li class="module-item complete">Module 1: Evasion Attack (FGSM) - Logs + Mitigation</li>
-    <li class="module-item">Module 2: Safe Model Loading</li>
-    <li class="module-item">Module 3: LLM Jailbreak + Detection + Mitigation</li>
-    <li class="module-item">Module 4: Retrieval Poisoning (RAG)</li>
-    <li class="module-item">Module 5: Embedding Drift Detection</li>
-    <li class="module-item">Module 6: Agent Tool Misconfiguration</li>
-  </ul>
-  
-  <a href="https://github.com/mlsecops-labs/field-manual" class="repo-link">View on GitHub</a>
-  
-  <div class="note">
-    This work uses AI tools for assistance. All lab experiments and decisions are human-led.
-  </div>
-  
-  <footer>
-    <div>Richard Spicer</div>
-    <div class="motto">Vigilis in Machina</div>
-  </footer>
 
   <script>
     const getTheme = () => {
