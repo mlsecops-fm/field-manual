@@ -1,27 +1,36 @@
-# MLSecOps Field Manual - Website
+# MLSecOps Field Manual
 
-Static site for the MLSecOps Field Manual.
+Documentation and website for the MLSecOps Field Manual.
 
 ---
 
 ## What's Here
 
-Single-page site describing the Field Manual and linking to the GitHub repository.
+**Website** (`index.html`)  
+Static site at https://mlsecops.fm
 
-**Live site:** https://mlsecops.fm
+**Field Manual Content** (`docs/`)
+- `modules/` - Field Manual entries for each module
+- `book/` - Book structure and table of contents
+- `growth-map/` - Learning notes and chapter mapping
+- `meta/` - Planning documents
+- `diagrams/` - Architecture diagrams
+- `drafts/` - Work in progress
 
 ---
 
-## Structure
+## Module Development
 
-- `index.html` - Main page (self-contained, includes all CSS/JS)
-- `CNAME` - Domain configuration for GitHub Pages
+Modules are developed and validated in the [modules repo](https://github.com/mlsecops-labs/modules), then documented here in Field Manual format.
+
+**Current Modules:**
+- Module 1: Evasion Attack (FGSM) - Complete
 
 ---
 
-## Local Development
+## AI-Assisted Development
 
-Open `index.html` in a browser. No build process needed.
+This work uses AI tools for drafting, code assistance, and research support. All experiments, infrastructure, and decisions are human-led. Every module is manually validated before publication.
 
 ---
 
