@@ -1,68 +1,35 @@
-# MLSecOps Field Manual™
+# MLSecOps Field Manual - Website
 
-A project of **MLSecOps Labs™**.
-
-The **MLSecOps Field Manual™** is a reproducible library of small MLSecOps modules and patterns.
-
-The project grows out of a private MLSecOps Lab and focuses on:
-
-- **Reality** – every module is based on something that actually ran in the lab.   
-- **Reproducibility** – small, self-contained scenarios.   
-- **Operational clarity** – logs, metrics, and failure modes.
+Static site for the MLSecOps Field Manual.
 
 ---
 
-## Module roadmap
+## What's Here
 
-Initial modules follow the roadmap in the Concept document, starting with:
+Single-page site describing the Field Manual and linking to the GitHub repository.
 
-1. **Module 1 — Evasion Attack: Logs + Mitigation**
-    
-2. Safe model loading
-    
-3. LLM jailbreak + logging + mitigation
-    
-4. Retrieval poisoning (RAG)
-    
-5. Embedding drift detection
-    
-6. Agent tool misconfiguration demo  
-    … and more over time.
+**Live site:** https://mlsecops.fm
 
 ---
 
-## Status
+## Structure
 
-- ✅ Module 1 Complete
+- `index.html` - Main page (self-contained, includes all CSS/JS)
+- `CNAME` - Domain configuration for GitHub Pages
 
 ---
 
-**AI-Assisted Engineering Disclosure**
+## Local Development
 
-This project was developed using a **hybrid workflow** that combines:
-
-* Human-driven engineering
-* AI-assisted drafting, coding, review, and research
-* Manual validation, correction, and iteration by the author
-
-AI tools were used as **assistants**, not autonomous agents.
-All infrastructure, configurations, testing, integrations, and final decisions were performed by the author in a **hands-on, human-led manner**.
-
-The goals for AI-assisted development were:
-* Accelerating experimentation
-* Exploring multiple design/attack/defense patterns
-* Reducing boilerplate work
-* Improving clarity and documentation
-* Learning through guided iteration
-
-Every module, configuration, and implementation was manually validated and reproduced to ensure understanding, accuracy, and transparency.
+Open `index.html` in a browser. No build process needed.
 
 ---
 
 ## License
 
-This project is licensed under the **MIT License** – see `LICENSE` for details.
+MIT License – see LICENSE file.
 
 ---
 
-*MLSecOps Labs™, MLSecOps Field Manual™, and Vigilis in Machina™ are unregistered trademarks of Richard Spicer.*
+<sub>Richard Spicer</sub>  
+<sub>*Vigilis in Machina*</sub>
