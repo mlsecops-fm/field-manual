@@ -1,4 +1,4 @@
-# MLSecOps Field Manual™ – Chapter Mapping Tracker
+# MLSecOps Field Manual – Chapter Mapping Tracker
 
 Tracks notes → drafts → chapters
 

@@ -1,6 +1,6 @@
 
 ---
-MLSecOps Field Manual™ – Growth Map
+MLSecOps Field Manual – Growth Map
 
 A working document for capturing operational knowledge as it develops.
 
